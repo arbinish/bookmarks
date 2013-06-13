@@ -1,0 +1,43 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#">Bookmark Manager v1.0</a>
+        </div>
+    </div>
+</div>
+<div class="container" id="main">
+    <form class="form-search">
+    <div class="input-append">
+        <input type="text" id="entry" class="input-xxlarge search-query" placeholder="URL or TAG name">
+        <button type="submit" id="search" class="btn btn-inverse">&nbsp;<span class="icon-white icon-search"></span></button>
+    </div>
+    </form>
+    <dl id="bookmarks"></dl>
+<!-- A sidebar to display top tags -->
+</div>
+    <div id="sidebar">
+        <h4>Tags</h4>
+    </div>
+<!-- A modal window for display error/warning messages -->
+<div class="modal hide fade" id="not-found">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h2>Oops ...</h2>
+    </div>
+    <div class="modal-body">
+        <p></p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-primary" id="close-modal">Close</a>
+    </div>
+</div>
+<!-- This will be used to capture tags for a given URL. Meant as a popup modal
+window. Hidden by default -->
+<div class="modal hide fade" id="extra">
+    <form class="form-search">
+        <div class="modal-body input-append">
+            <input type="text" id="tags" name="tags" class="span5 search-query" placeholder="comma separated tag names">
+            <button type="submit" id="tagsubmit" class="btn btn-inverse">&nbsp;<span class="icon-white icon-search"></span></button>
+        </div>
+   </form>
+</div>
