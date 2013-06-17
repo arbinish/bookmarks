@@ -142,6 +142,8 @@ var postURL = function(ev) {
         var _etags = getTags(_url);
         $('#extra').modal('hide');
         $('#extra #tagsubmit').unbind('click');
+        console.log('show spinner invoked');
+        showSpinner();
         if (console)
             console.log('db tags=' + _etags.toString() + ' user tags = ' + t.replace(/ /g, ''));
         if (_etags.toString() == t.replace(/ /g, '')) {
@@ -161,6 +163,9 @@ var postURL = function(ev) {
             $('#entry').val('tags:'+t);
             $('#entry').focus();
 //                    $('#search').trigger('click');
+        }).always(function() {
+            console.log('removing loader');
+            $('div.loader').remove();
         });
         return false;
 };
@@ -201,4 +206,30 @@ function updateStatus(msg) {
                     .fadeOut('slow')
                     .remove();
     }, 5000);
+}
+
+function showSpinner() {
+    $('div.loader').remove();
+    $('<div class="loader">').css({
+                'position': 'absolute',
+                'top': 0,
+                'left': 0,
+                'width': '100%',
+                'height': '100%', 
+                'background-repeat': 'no-repeat',
+                'background-image': 'url("/img/gear.gif")',
+                'background-position': 'center',
+                'z-index': '9999',
+            }).appendTo('body');
+    $('<div class="loader">').css({
+                'position': 'fixed',
+                'top': 0,
+                'left': 0,
+                'right': 0,
+                'bottom': 0,
+                'width': '100%',
+                'height': '100%', 
+                'background-color': 'rgba(0, 0, 0, 0.4)',
+                'z-index': '9998',
+    }).appendTo('body');
 }
